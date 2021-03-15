@@ -1,0 +1,14 @@
+function makeGroups(data) {
+  const res = [];
+
+  for (let i = 0; i < data.length; i++) {
+    const helpObj = {
+      firstName: data[i][0], lastName: data[i][1],
+    };
+
+    res.push(helpObj);
+    data[i][3].push(helpObj);
+  }
+
+  return res;
+};
