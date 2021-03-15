@@ -12,3 +12,4 @@ function makeGroups(data) {
 
   return res;
 };
+// TypeError: Cannot read property 'push' of undefined
