@@ -1,15 +1,36 @@
-function makeGroups(data) {
-  const res = [];
+<script>
+function makeCalculator() {
+  return {
+    result: 0,
 
-  for (let i = 0; i < data.length; i++) {
-    const helpObj = {
-      firstName: data[i][0], lastName: data[i][1],
-    };
+    operate(callback, x) {
+      callback(x);
 
-    res.push(helpObj);
-    data[i][3].push(helpObj);
-  }
+      return this;
+    },
 
-  return res;
-};
-// TypeError: Cannot read property 'push' of undefined
+    add(num) {
+      this.result += num;
+    },
+
+    subtract(num) {
+      this.result -= Math.abs(num);
+    },
+
+    divide(num) {
+      this.result /= Math.abs(num);
+    },
+
+    multiply(num) {
+      this.result *= Math.abs(num);
+    },
+
+    reset() {
+      this.result = 0;
+    },
+  };
+}
+calculator = makeCalculator();
+calculator.operate(calculator.add, 3);
+
+</script>
