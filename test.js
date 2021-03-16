@@ -1,6 +1,6 @@
 
 function makeCalculator() {
-  return {
+  const calc = {
     result: 0,
 
     operate(callback, x) {
@@ -10,7 +10,7 @@ function makeCalculator() {
     },
 
     add(num) {
-      this.result += num;
+      this.result += Math.abs(num);
     },
 
     subtract(num) {
@@ -29,6 +29,14 @@ function makeCalculator() {
       this.result = 0;
     },
   };
+
+  for (const key in calc) {
+    if (typeof calc[key] === 'function') {
+      calc[key] = calc[key].bind(calc);
+    }
+  }
+
+  return calc;
 }
 calculator = makeCalculator();
 calculator.operate(calculator.add, 3);
