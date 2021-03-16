@@ -1,4 +1,4 @@
-<script>
+
 function makeCalculator() {
   return {
     result: 0,
@@ -33,4 +33,4 @@ function makeCalculator() {
 calculator = makeCalculator();
 calculator.operate(calculator.add, 3);
 
-</script>
+
